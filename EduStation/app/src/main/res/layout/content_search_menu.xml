@@ -9,28 +9,24 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_search_menu" tools:context="com.blank.edustation.SearchMenu">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:weightSum="1">
+        android:layout_alignParentStart="true">
 
-        <Button
-            android:layout_width="257dp"
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.13" />
+            android:id="@+id/majors"
+            android:layout_row="0"
+            android:layout_column="0" />
 
-        <Button
-            android:layout_width="265dp"
+        <ListView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"
-            android:id="@+id/button2"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.15" />
-    </LinearLayout>
+            android:id="@+id/classes"
+            android:layout_row="1"
+            android:layout_column="0" />
+    </GridLayout>
 </RelativeLayout>
