@@ -5,4 +5,5 @@
     <string name="title_activity_register">Register</string>
     <string name="title_activity_search_menu">SearchMenu</string>
     <string name="title_activity_startup_menu">StartupMenu</string>
+    <string name="title_activity_class_menu">ClassMenu</string>
 </resources>

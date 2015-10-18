@@ -9,29 +9,52 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_startup_menu" tools:context="com.blank.edustation.StartupMenu">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView"
+            android:layout_gravity="center"
+            android:src="@drawable/station"
+            android:scaleType="fitXY"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_gravity="center_horizontal|top"
+            android:text="ScholarStation"
+            android:textColor="#ffffff"
+            android:textStyle="bold|italic"
+            android:textSize="40dp" />
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/mLlayoutBottomButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
 
         <Button
-            android:layout_width="265dp"
+            android:id="@+id/button2"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            android:id="@+id/button3"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.15" />
+            android:layout_weight="1"
+            android:text="Profile" />
 
         <Button
-            android:layout_width="265dp"
-            android:layout_height="wrap_content"
-            android:text="Search"
             android:id="@+id/search"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.15"
-            android:onClick="onClick" />
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search" />
     </LinearLayout>
 </RelativeLayout>

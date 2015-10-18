@@ -38,6 +38,11 @@
             android:label="@string/title_activity_startup_menu"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ClassMenu"
+            android:label="@string/title_activity_class_menu"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

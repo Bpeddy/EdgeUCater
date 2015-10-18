@@ -1,5 +1,6 @@
 package com.blank.edustation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchMenu extends AppCompatActivity {
+    AppCompatActivity parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SearchMenu extends AppCompatActivity {
 
         final Spinner majors = (Spinner) findViewById(R.id.majors);
         final ListView classes = (ListView) findViewById(R.id.classes);
+        parent = this;
 
         ArrayAdapter<String> adp1=new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,majorList);
@@ -42,9 +45,20 @@ public class SearchMenu extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,classesList);
         classes.setAdapter(adp2);
 
+        classes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Intent intent = new Intent(parent, ClassMenu.class);
+                String text = classesList.get(position).toString();
+                intent.putExtra("CLASS", text);
+                startActivity(intent);
+            }
+        });
+
         majors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
+                                       int position, long id) {
                 switch (position) {
                     case 0:
                         classesList.clear();
@@ -55,30 +69,21 @@ public class SearchMenu extends AppCompatActivity {
                         classesList.add("Object Oriented Programming");
                         classesList.add("Theory of Computation");
                         adp2.notifyDataSetChanged();
-                        break;
-                    case 2:
-                        classesList.clear();
-                        classesList.add("Software Engineering I");
-                        classesList.add("Software Engineering II");
-                        adp2.notifyDataSetChanged();
-                        break;
-                }
-            }
+                             break;
+                         case 2:
+                             classesList.clear();
+                             classesList.add("Software Engineering I");
+                             classesList.add("Software Engineering II");
+                             adp2.notifyDataSetChanged();
+                             break;
+                     }
+                 }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                 @Override
+                 public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
+                 }
+             });
+        }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
-
-}
