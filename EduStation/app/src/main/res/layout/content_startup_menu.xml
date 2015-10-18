@@ -32,7 +32,9 @@
             android:text="ScholarStation"
             android:textColor="#ffffff"
             android:textStyle="bold|italic"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:enabled="false"
+            android:inputType="none"/>
     </FrameLayout>
     <LinearLayout
         android:id="@+id/mLlayoutBottomButtons"

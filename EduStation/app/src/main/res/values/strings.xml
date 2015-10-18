@@ -6,4 +6,6 @@
     <string name="title_activity_search_menu">SearchMenu</string>
     <string name="title_activity_startup_menu">StartupMenu</string>
     <string name="title_activity_class_menu">ClassMenu</string>
+    <string name="title_activity_tutor_menu">TutorMenu</string>
+    <string name="title_activity_group_menu">GroupMenu</string>
 </resources>
