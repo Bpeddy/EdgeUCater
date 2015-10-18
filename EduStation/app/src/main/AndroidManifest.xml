@@ -46,14 +46,20 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".TutorMenu"
-            android:label="@string/title_activity_tutor_menu"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:name=".TutorProfile"
+            android:label="@string/title_activity_tutor_profile" >
         </activity>
         <activity
-            android:name=".GroupMenu"
-            android:label="@string/title_activity_group_menu"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:name=".TutorCalendar"
+            android:label="@string/title_activity_tutor_calendar" >
+        </activity>
+        <activity
+            android:name=".ViewTutorSessions"
+            android:label="@string/title_activity_view_tutor_sessions" >
+        </activity>
+        <activity
+            android:name=".ViewStudyGroups"
+            android:label="@string/title_activity_view_study_groups" >
         </activity>
     </application>
 

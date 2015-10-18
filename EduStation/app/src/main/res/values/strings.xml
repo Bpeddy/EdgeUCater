@@ -6,6 +6,18 @@
     <string name="title_activity_search_menu">SearchMenu</string>
     <string name="title_activity_startup_menu">StartupMenu</string>
     <string name="title_activity_class_menu">ClassMenu</string>
-    <string name="title_activity_tutor_menu">TutorMenu</string>
-    <string name="title_activity_group_menu">GroupMenu</string>
+    <string name="title_activity_tutor_profile">TutorProfile</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="email">e-Mail</string>
+    <string name="Ratings">Ratings</string>
+    <string name="Clarity">Clarity: Good</string>
+    <string name="Knowledge">Knowledge: Good</string>
+    <string name="Helpfullness">Helpfulness: Good</string>
+    <string name="Tutoring">Avaliable to Tutor</string>
+    <string name="cop3220">COP 3220</string>
+    <string name="cop4220">COP 4220</string>
+    <string name="title_activity_tutor_calendar">TutorCalendar</string>
+    <string name="title_activity_view_tutor_sessions">ViewTutorSessions</string>
+    <string name="title_activity_view_study_groups">ViewStudyGroups</string>
 </resources>

@@ -18,6 +18,7 @@ import java.util.List;
 
 public class SearchMenu extends AppCompatActivity {
     AppCompatActivity parent;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class SearchMenu extends AppCompatActivity {
         setContentView(R.layout.activity_search_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        userLocalStore = new UserLocalStore(this);
 
         final List<String> majorList=new ArrayList<String>();
         final List<String> classesList=new ArrayList<String>();
@@ -84,6 +87,14 @@ public class SearchMenu extends AppCompatActivity {
 
                  }
              });
+        }
+
+        @Override
+        protected void onStart(){
+            super.onStart();
+            if(!userLocalStore.getLoggedIn()){
+                startActivity(new Intent(SearchMenu.this, Login.class));
+            }
         }
 
     }
