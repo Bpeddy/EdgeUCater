@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blank.edustation" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -44,8 +45,22 @@
             android:label="@string/title_activity_class_menu"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".TutorProfile"
+            android:label="@string/title_activity_tutor_profile" >
+        </activity>
+        <activity
+            android:name=".TutorCalendar"
+            android:label="@string/title_activity_tutor_calendar" >
+        </activity>
+        <activity
+            android:name=".ViewTutorSessions"
+            android:label="@string/title_activity_view_tutor_sessions" >
+        </activity>
+        <activity
+            android:name=".ViewStudyGroups"
+            android:label="@string/title_activity_view_study_groups" >
+        </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
