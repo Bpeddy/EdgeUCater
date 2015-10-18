@@ -83,6 +83,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         userLocalStore.storeUserData(returnedUser);
         userLocalStore.setLoggedIn(true);
 
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, StartupMenu.class));
     }
 }
