@@ -14,6 +14,7 @@ public class StartupMenu extends AppCompatActivity{
 
     AppCompatActivity parent = this;
     Button searchButton;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +22,22 @@ public class StartupMenu extends AppCompatActivity{
         setContentView(R.layout.activity_startup_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        userLocalStore = new UserLocalStore(this);
+        userLocalStore = new UserLocalStore(this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
         searchButton = (Button) findViewById(R.id.search);
         searchButton.setOnClickListener(new SearchButtonListener());
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if(!userLocalStore.getLoggedIn()){
+            startActivity(new Intent(StartupMenu.this, Login.class));
+        }
     }
 
     public class SearchButtonListener implements View.OnClickListener {
