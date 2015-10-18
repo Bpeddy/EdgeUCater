@@ -1,5 +1,6 @@
 package com.blank.edustation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,16 +8,20 @@ import android.view.MenuItem;
 
 public class ViewStudyGroups extends AppCompatActivity {
 
+    AppCompatActivity parent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_study_groups);
+
+        parent = this;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_study_groups, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 
@@ -28,7 +33,15 @@ public class ViewStudyGroups extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_Profile) {
+            startActivity(new Intent(parent, TutorProfile.class));
+            return true;
+        }
+        if (id == R.id.action_Search) {
+            startActivity(new Intent(parent, SearchMenu.class));
+            return true;
+        }
+        if (id == R.id.action_Logout) {
             return true;
         }
 

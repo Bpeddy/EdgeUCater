@@ -12,11 +12,13 @@ import android.widget.TextView;
 public class TutorProfile extends AppCompatActivity {
     TextView name,major,age,email;
     Button calendarButton;
+    AppCompatActivity parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_profile);
+        parent = this;
 
         name = (TextView) findViewById(R.id.NameField);
         name.setText("Andy Android");
@@ -51,7 +53,7 @@ public class TutorProfile extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_tutor_profile, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 
@@ -63,7 +65,15 @@ public class TutorProfile extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_Profile) {
+            startActivity(new Intent(parent, TutorProfile.class));
+            return true;
+        }
+        if (id == R.id.action_Search) {
+            startActivity(new Intent(parent, SearchMenu.class));
+            return true;
+        }
+        if (id == R.id.action_Logout) {
             return true;
         }
 

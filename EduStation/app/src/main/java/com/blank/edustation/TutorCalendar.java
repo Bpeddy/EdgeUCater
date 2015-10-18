@@ -10,11 +10,13 @@ import android.widget.Button;
 
 public class TutorCalendar extends AppCompatActivity {
     Button tutorSessions,studyGroups;
+    AppCompatActivity parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_calendar);
+        parent = this;
 
         tutorSessions= (Button) findViewById(R.id.button3);
         tutorSessions.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +40,7 @@ public class TutorCalendar extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_tutor_calendar, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 
@@ -50,7 +52,15 @@ public class TutorCalendar extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_Profile) {
+            startActivity(new Intent(parent, TutorProfile.class));
+            return true;
+        }
+        if (id == R.id.action_Search) {
+            startActivity(new Intent(parent, SearchMenu.class));
+            return true;
+        }
+        if (id == R.id.action_Logout) {
             return true;
         }
 

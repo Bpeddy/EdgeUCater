@@ -10,9 +10,9 @@ import android.widget.Button;
 
 public class StartupMenu extends AppCompatActivity{
 
-    AppCompatActivity parent = this;
     Button searchButton, ProfileButton;
     UserLocalStore userLocalStore;
+    AppCompatActivity parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
