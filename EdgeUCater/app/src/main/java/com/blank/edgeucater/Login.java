@@ -1,14 +1,15 @@
-package com.blank.edustation;
+package com.blank.edgeucater;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.widget.*;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -41,12 +42,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         switch(v.getId()){
             case R.id.loginButton:
 
-                String email = emailLogin.getText().toString();
-                String password = passwordLogin.getText().toString();
+                User user = new User(null, null);
 
-                User user = new User(email, password);
+                userLocalStore.storeUserData(user);
+                userLocalStore.setLoggedIn(true);
 
-                authenticate(user);
 
                 break;
             case R.id.registerLink:
@@ -55,34 +55,5 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
                 break;
         }
-    }
-
-    private void authenticate(User user){
-        ServerRequests serverRequest = new ServerRequests(this);
-        serverRequest.fetchUserDataInBackground(user, new GetUserCallback() {
-            @Override
-            public void done(User returnedUser) {
-                if(returnedUser == null){
-                    showErrorPassword();
-                } else{
-                    logUserIn(returnedUser);
-                }
-            }
-        });
-
-    }
-
-    private void showErrorPassword(){
-        AlertDialog.Builder dBuilder = new AlertDialog.Builder(Login.this);
-        dBuilder.setMessage("Wrong log in info!");
-        dBuilder.setPositiveButton("OK", null);
-        dBuilder.show();
-    }
-
-    private void logUserIn(User returnedUser){
-        userLocalStore.storeUserData(returnedUser);
-        userLocalStore.setLoggedIn(true);
-
-        startActivity(new Intent(this, StartupMenu.class));
     }
 }

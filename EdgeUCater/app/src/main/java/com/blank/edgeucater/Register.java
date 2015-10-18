@@ -1,7 +1,5 @@
-package com.blank.edustation;
+package com.blank.edgeucater;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -47,32 +45,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                 if(password.equals(confirmPassword)) {
                     User regData = new User(firstName, lastName, email, password, studentID);
-                    registerUser(regData);
-                } else{
-                    showErrorPassword();
                 }
 
 
                 break;
         }
-    }
-
-    private void registerUser(User user){
-
-        ServerRequests serverRequest = new ServerRequests(this);
-        serverRequest.storeUserDataInBackground(user, new GetUserCallback() {
-            @Override
-            public void done(User returnedUser) {
-                startActivity(new Intent(Register.this, Login.class));
-            }
-        });
-    }
-
-    private void showErrorPassword(){
-        AlertDialog.Builder dBuilder = new AlertDialog.Builder(Register.this);
-        dBuilder.setMessage("Your passwords do not match!");
-        dBuilder.setPositiveButton("OK", null);
-        dBuilder.show();
     }
 
 }

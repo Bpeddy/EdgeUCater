@@ -1,4 +1,4 @@
-package com.blank.edustation;
+package com.blank.edgeucater;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onStart();
         if(authenticate()){
             displayUserDetails();
-        }else{
-            startActivity(new Intent(MainActivity.this, Login.class));
         }
     }
 
